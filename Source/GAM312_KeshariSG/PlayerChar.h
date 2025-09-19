@@ -39,4 +39,18 @@ public:
 		void FindObject();
 	UPROPERTY(VisibleAnywhere)
 		class UCameraComponent* PlayerCameraComp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
+		float Health = 100.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
+		float Hunger = 100.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
+		float Stamina = 100.0f;
+	UFUNCTION(BlueprintCallable)
+		void SetHealth(float amount);
+	UFUNCTION(BlueprintCallable)
+		void SetHunger(float amount);
+	UFUNCTION(BlueprintCallable)
+		void DecreaseStats();
+	UFUNCTION(BlueprintCallable)
+		void SetStamina(float amount);
 };
