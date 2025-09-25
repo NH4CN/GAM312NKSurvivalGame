@@ -87,23 +87,28 @@ void APlayerChar::FindObject()
 	QueryParams.bReturnFaceIndex = true;
 	if (GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, QueryParams))
 	{
-		AResource_M* HitResource = Cast<AResource_M>(HitResult.GetActor());
-		if (HitResource)
+		if (Stamina > 5.0f)
 		{
-			FString hitName = HitResource->resourceName;
-			int resourceValue = HitResource->resourceAmount;
-			HitResource->totalResource = HitResource->totalResource - resourceValue;
-			if (HitResource->totalResource > resourceValue)
+			AResource_M* HitResource = Cast<AResource_M>(HitResult.GetActor());
+			if (HitResource)
 			{
-				GiveResource(resourceValue, hitName);
-				check(GEngine != nullptr);
-				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Resource Collected"));
-			}
-			else
-			{
-				HitResource->Destroy();
-				check(GEngine != nullptr);
-				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Resource Depleted"));
+				FString hitName = HitResource->resourceName;
+				int resourceValue = HitResource->resourceAmount;
+				HitResource->totalResource = HitResource->totalResource - resourceValue;
+				if (HitResource->totalResource > resourceValue)
+				{
+					GiveResource(resourceValue, hitName);
+					check(GEngine != nullptr);
+					GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Resource Collected"));
+					UGameplayStatics::SpawnDecalAtLocation(GetWorld(), hitDecal, FVector(10.0f, 10.0f, 10.0f), HitResult.Location, FRotator(-90, 0, 0), 2.0f);
+					SetStamina(-5.0f);
+				}
+				else
+				{
+					HitResource->Destroy();
+					check(GEngine != nullptr);
+					GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Resource Depleted"));
+				}
 			}
 		}
 	}
