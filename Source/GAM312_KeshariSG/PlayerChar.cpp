@@ -195,15 +195,15 @@ void APlayerChar::UpdateResources(float woodAmount, float stoneAmount, FString b
 			ResourcesArray[1] = ResourcesArray[1] - stoneAmount;
 			if (buildingObject == "Wall")
 			{
-				BuildingArray[0] = ResourcesArray[0] + 1;
+				BuildingArray[0] = BuildingArray[0] + 1;
 			}
 			if (buildingObject == "Floor")
 			{
-				BuildingArray[1] = ResourcesArray[1] + 1;
+				BuildingArray[1] = BuildingArray[1] + 1;
 			}
 			if (buildingObject == "Ceiling")
 			{
-				BuildingArray[2] = ResourcesArray[2] + 1;
+				BuildingArray[2] = BuildingArray[2] + 1;
 			}
 		}
 	}
