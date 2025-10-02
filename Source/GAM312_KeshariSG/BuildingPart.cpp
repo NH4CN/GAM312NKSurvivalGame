@@ -2,6 +2,8 @@
 
 
 #include "BuildingPart.h"
+#include "Components/StaticMeshComponent.h"
+#include "Materials/MaterialInterface.h"
 
 // Sets default values
 ABuildingPart::ABuildingPart()

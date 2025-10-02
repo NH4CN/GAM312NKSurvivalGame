@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BuildingPart.generated.h"
 #include "Components/ArrowComponent.h"
+#include "BuildingPart.generated.h"
 
 UCLASS()
 class GAM312_KESHARISG_API ABuildingPart : public AActor
