@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "Resource_M.h"
 #include "BuildingPart.h"
+#include "PlayerWidget.h"
 #include "Kismet/GameplayStatics.h"
 #include "PlayerChar.generated.h"
 
@@ -69,6 +70,8 @@ public:
 		TSubclassOf<ABuildingPart> BuildPartClass;
 	UPROPERTY()
 		ABuildingPart* spawnedPart;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UPlayerWidget* playerUI;
 	UFUNCTION(BlueprintCallable)
 		void SetHealth(float amount);
 	UFUNCTION(BlueprintCallable)
