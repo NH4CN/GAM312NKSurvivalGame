@@ -82,7 +82,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void SetHealth(float amount);
 	UFUNCTION(BlueprintCallable)
-		void SetHunger(float amount)
+		void SetHunger(float amount);
 	UFUNCTION(BlueprintCallable)
 		void DecreaseStats();
 	UFUNCTION(BlueprintCallable)
